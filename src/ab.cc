@@ -28,4 +28,6 @@ int main(int argc, char* argv[]) {
     // Start CLI
     Cli cli(pm);
     cli.main();
+
+    pthread_join(pmThread, nullptr);
 }

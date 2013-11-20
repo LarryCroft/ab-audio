@@ -18,6 +18,7 @@ public:
      * Global playback control
      */
     void start();
+    void stop();
     void seek(float dt);
 
     void add(Stream* s);
@@ -36,6 +37,7 @@ private:
 
     // Playback status
     Stream* currentStream;
+    bool play;
     unsigned sample;
 };
 

@@ -10,6 +10,7 @@
 PlaybackManager::PlaybackManager():
     paConnection(nullptr),
     currentStream(nullptr),
+    play(true),
     sample(0)
 {
     // Create sample spec
@@ -49,7 +50,16 @@ void PlaybackManager::main() {
             assert(err == 0);
             break;
         }
+
+        // Check for quit
+        if (!play) {
+            return;
+        }
     }
+}
+
+void PlaybackManager::stop() {
+    play = false;
 }
 
 void PlaybackManager::seek(float dt) {

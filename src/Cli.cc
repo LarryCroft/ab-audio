@@ -12,8 +12,7 @@ Cli::Cli(PlaybackManager& pm):
 
 void Cli::main() {
     std::string cmd;
-    bool run = true;
-    while (run) {
+    while (true) {
         std::cout << "> " << std::flush;
         std::cin >> cmd;
 
@@ -68,7 +67,8 @@ void Cli::main() {
         }
         // Quit
         else if (cmd == "q") {
-            run = false;
+            pm.stop();
+            return;
         }
         else {
             std::cerr << "Unknown command: " << cmd << std::endl;
