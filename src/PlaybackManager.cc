@@ -52,6 +52,11 @@ void PlaybackManager::main() {
     }
 }
 
+void PlaybackManager::seek(float dt) {
+    int offset = 4*44100*dt; // * 2 for 16bit, * 2 for 2 channels
+    unsigned newSample = std::max(sample + offset, static_cast<unsigned>(0));
+    sample = newSample;
+}
 
 void PlaybackManager::add(Stream* s) {
     streams.push_back(s);

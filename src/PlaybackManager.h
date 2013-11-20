@@ -14,11 +14,18 @@ public:
 
     void main();
 
+    /**
+     * Global playback control
+     */
     void start();
+    void seek(float dt);
 
     void add(Stream* s);
     void switchTo(unsigned id);
 
+    /**
+     * Control the current stream
+     */
     void addDelay(int delta);
     void addAmp(float delta);
 

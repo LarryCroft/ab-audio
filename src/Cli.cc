@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+const float SEEK_TIME = 3;
+
 Cli::Cli(PlaybackManager& pm):
     pm(pm)
 {
@@ -24,6 +26,13 @@ void Cli::main() {
             else {
                 std::cin.clear();
             }
+        }
+        // Seek
+        else if (cmd == "h") {
+            pm.seek(-SEEK_TIME);
+        }
+        else if (cmd == "l") {
+            pm.seek(SEEK_TIME);
         }
         // Delay
         else if (cmd == "d") {
