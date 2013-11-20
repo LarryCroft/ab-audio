@@ -13,6 +13,7 @@ void Cli::main() {
     std::string cmd;
     bool run = true;
     while (run) {
+        std::cout << "> " << std::flush;
         std::cin >> cmd;
 
         // Switch streams
